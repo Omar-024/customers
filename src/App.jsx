@@ -5,10 +5,12 @@ import Login from './components/login/Login'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import Home from './components/Home/Home'
-import AuthContextProvider from './components/AuthContextProvider/authContextProvider'
 import Customers from './components/Customers/Customers'
 import CustomersEdit from './components/CustomersEdit/CustomersEdit'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import AuthContext from './components/AuthContext/AuthContext'
+
+
 
 function App() {
   
@@ -25,12 +27,21 @@ function App() {
 
   return<>
   <main dir='rtl'>
-  <AuthContextProvider>
+   <AuthContext>
 
   <RouterProvider router={router}/>
    <Toaster />
 
-  </AuthContextProvider>
+   </AuthContext>
+   
+
+   
+
+
+ 
+
+
+  
   </main>
 
   

@@ -1,15 +1,15 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { authContext } from '../AuthContextProvider/authContextProvider'
 import { useFormik } from 'formik'
 import toast from 'react-hot-toast'
+import { myauthcontext } from '../AuthContext/AuthContext'
 
 
 export default function CustomersEdit() {
     let {id}=useParams()
     console.log("id" ,id)
-     let {token}=useContext(authContext)
+     let {token}=useContext(myauthcontext)
      const [initialValues, setinitialValues] = useState({})
       let navigate =useNavigate()
 

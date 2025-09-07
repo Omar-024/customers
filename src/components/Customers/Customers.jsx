@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import InputSearch from '../Inputsearch/InputSearch'
 import axios from 'axios'
-import { authContext } from '../AuthContextProvider/authContextProvider'
 import Proceduers from '../Proceduers/Proceduers'
 import { BeatLoader } from "react-spinners";
 import toast from 'react-hot-toast'
+import { myauthcontext } from '../AuthContext/AuthContext';
 
 export default function Customers() {
     const [customers, setcustomers] = useState(null)
     const [isLoading, setisLoading] = useState(false)
-   let{token} =useContext(authContext)
+   let{token} =useContext(myauthcontext)
       const getCustomers=()=>{
         setisLoading(true)
         axios.get('https://dev.thetechtitans.net/api/allData?&requiredData[]=customers&' , {

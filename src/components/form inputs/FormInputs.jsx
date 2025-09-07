@@ -4,11 +4,11 @@ import { useFormik } from 'formik'
 import React, { useContext, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
-import { authContext } from '../AuthContextProvider/authContextProvider'
 import toast from 'react-hot-toast'
+import { myauthcontext } from '../AuthContext/AuthContext'
 
 export default function FormInputs() {
-     let {token}=useContext(authContext)
+     let {token}=useContext(myauthcontext)
       let navigate =useNavigate()
      
     const [showTable, setshowTable] = useState(false)
