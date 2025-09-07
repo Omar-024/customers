@@ -33,21 +33,14 @@ export default function FormInputs() {
         .then(({data})=>{
             console.log(data)
             console.log(data.status)
-            if(data.status=="success"){
-                 toast.success('تم الانشاء بنجاح !' );
-                setTimeout(() => {
-                navigate("/customers")
-               }, 1000);
-            }
-          else if(data.status=="error"){
-                toast.error('فشل الانشاء !' );
-          }
-            
-             
-         
-
+            setTimeout(() => {
+            navigate("/customers")
+           }, 1000);
+           toast.success('تم الانشاء بنجاح !' );
+        
         }).catch((error)=>{
             console.log(error)
+              toast.error('فشل الانشاء !' );
             
               
         })
@@ -75,7 +68,7 @@ export default function FormInputs() {
  email: "",
  opening_balance:0,
  ofline: true,
- upload_key: "176756720386",
+ upload_key: "548025123fd875223",
  code :"",
  balance_by_branch : 1,
     accountBranchBalances : [
@@ -100,7 +93,7 @@ export default function FormInputs() {
   
    <form onSubmit={formik.handleSubmit} >
      <div className="container mt-3">
-     <div className="grid grid-cols-[1fr_2fr_1fr_2fr] gap-5 pb-5 border-b border-gray-300">
+     <div className="grid lg:grid-cols-[1fr_2fr_1fr_2fr] grid-cols-1 gap-5 pb-5 border-b border-gray-300">
       <div > <p> اسم المورد </p> </div>
       <div> 
                     
@@ -112,7 +105,7 @@ export default function FormInputs() {
 
         
       </div>
-      <div className='text-center'> <p> كود </p> </div>
+      <div className='md:text-center'> <p> كود </p> </div>
       <div> 
         
          <input
@@ -136,7 +129,7 @@ export default function FormInputs() {
 
         
       </div>
-      <div className='text-center'> <p> تصنيف الحساب </p> </div>
+      <div className='md:text-center'> <p> تصنيف الحساب </p> </div>
       <div> 
         
          <input 
@@ -150,7 +143,8 @@ export default function FormInputs() {
       </div>
 
       {/*  */}
-      <div > <p>  حالة المورد </p> </div>
+      
+        <div > <p>  حالة المورد </p> </div>
       <div > 
                     
             <label className="inline-flex items-center cursor-pointer">
@@ -167,6 +161,7 @@ export default function FormInputs() {
 
         
       </div>
+      
       {/*  */}
 
     
@@ -179,7 +174,7 @@ export default function FormInputs() {
      <p className='text-[#95AAC9] text-[20px]'>  من هنا يمكنك التحكم في اعدادات الحساب </p>
    </div>
    {/*  */}
-    <div className="grid grid-cols-[1fr_2fr_1fr_2fr] gap-5 pb-5  mt-4">
+    <div className="grid md:grid-cols-[1fr_2fr_1fr_2fr] gap-5 pb-5  mt-4">
    
       <div > <p> توزيع الارصده على الفروع </p> </div>
       <div > 

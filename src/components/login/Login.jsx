@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import img1 from '../../assets/imgi_3_login.jpg'
 import img2 from '../../assets/imgi_1_blue logo.png'
 import { TextField } from '@mui/material'
@@ -6,11 +6,12 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import { myauthcontext } from '../AuthContext/AuthContext'
 export default function Login() {
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
-    const [token, settoken] = useState('')
-     const [isLoading, setIsLoading] = useState(null)
+         let { settoken} =useContext(myauthcontext)
+     const [isLoading, setIsLoading] = useState(false)
       let navigate = useNavigate()
     const handleLogin=(values)=>{
               
@@ -19,8 +20,8 @@ export default function Login() {
         axios.post('https://dev.thetechtitans.net/api/login' , values)
         .then(({data})=>{
             console.log(data)
-            settoken(data.data.token)
             localStorage.setItem("token" , data.data.token)
+            settoken(data.data.token)
             setSuccess(data.message)
             if(data.message)
             {
@@ -51,15 +52,15 @@ export default function Login() {
     
    <section >
   
-     <div dir='rtl' className='flex '>
-        <div className={`w-[60%]  relative`}>
+     <div dir='rtl' className='flex md:flex-row flex-col  '>
+        <div className={`md:w-[60%] w-full   relative`}>
         <img src={img1} alt="" className='w-full h-screen object-cover' />
           <div className="layer absolute inset-0 bg-blue-500/20">
             
           </div>
           
         </div>
-        <div className='w-[40%] bg-[#EEEEEE] pt-12 '>
+        <div className='md:w-[40%] w-full bg-[#EEEEEE] pt-12 '>
            
               <div className='flex flex-col *:text-center'>
                 

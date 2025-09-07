@@ -14,7 +14,7 @@ import AuthContext from './components/AuthContext/AuthContext'
 
 function App() {
   
-  const router= createBrowserRouter([
+  const router= createHashRouter([
     { path:"/" , element:<Layout/> , children:[
       {index:true , element:<ProtectedRoute><Home/></ProtectedRoute> } ,
       {path:"login" , element:<Login/>} ,

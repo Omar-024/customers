@@ -16,7 +16,7 @@ export default function Proceduers({deleteCustomer , customer}) {
   };
   const handleClose = () => {
     setAnchorEl(null);
-    deleteCustomer(customer.id)
+    
   };
   const handleCloseEdit = () => {
     setAnchorEl(null);
@@ -48,7 +48,10 @@ export default function Proceduers({deleteCustomer , customer}) {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} sx={{width:"200px" , display:"flex" , justifyContent:"end" , alignItems:"center"}}>
+        <MenuItem onClick={()=>{
+          handleClose()
+          deleteCustomer(customer.id)
+        }} sx={{width:"200px" , display:"flex" , justifyContent:"end" , alignItems:"center"}}>
         <div className='flex items-center gap-2'>
             <p className='text-blue-500'>حذف </p>
             <MdDelete className=' text-[18px]' />
