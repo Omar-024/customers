@@ -2,7 +2,7 @@
 import { Toaster } from 'react-hot-toast'
 import './App.css'
 import Login from './components/login/Login'
-import { createHashRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import Home from './components/Home/Home'
 import Customers from './components/Customers/Customers'
@@ -14,7 +14,7 @@ import AuthContext from './components/AuthContext/AuthContext'
 
 function App() {
   
-  const router= createHashRouter([
+  const router= createBrowserRouter([
     { path:"/" , element:<Layout/> , children:[
       {index:true , element:<ProtectedRoute><Home/></ProtectedRoute> } ,
       {path:"login" , element:<Login/>} ,
